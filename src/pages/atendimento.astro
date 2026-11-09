@@ -1,0 +1,257 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title={'Contato e Atendimento | Home Vantagens'} description={'Fale com um especialista Home Vantagens: central de atendimento via WhatsApp, triagem de casos e cotação gratuita de planos de saúde, seguros e consórcio.'} path='/atendimento' active={'atendimento'} dark={true}>
+        <div>
+            
+            <!-- Header de Atendimento -->
+            <section class="bg-hv-navy text-white py-14 lg:py-20 border-b border-white/10">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex items-center gap-2 text-xs font-mono text-white/60 mb-4">
+                        <a href="/" class="hover:text-white">Início</a>
+                        <span>/</span>
+                        <span class="text-hv-orange">Central de Atendimento & Dúvidas</span>
+                    </div>
+                    <h1 class="font-display font-extrabold text-3xl sm:text-5xl tracking-editorial">
+                        Fale com a Mesa ou peça sua cotação personalizada.
+                    </h1>
+                </div>
+            </section>
+
+            <!-- Formulário de Triagem Técnica + Canais Diretos -->
+            <section class="py-14 lg:py-20 bg-alabaster border-b border-hv-border">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                        
+                        <!-- Formulário Interativo que Estrutura o Caso para o WhatsApp -->
+                        <div class="lg:col-span-7 bg-white p-8 sm:p-10 rounded-2xl border border-hv-border shadow-sm">
+                            <span class="text-xs font-mono font-bold uppercase tracking-wider text-hv-orange block mb-2">
+                                Triagem Prioritária
+                            </span>
+                            <h2 class="font-display font-bold text-2xl sm:text-3xl text-hv-navy mb-6">
+                                Envie seu perfil para uma cotação gratuita na mesa
+                            </h2>
+
+                            <form id="triageForm" class="space-y-5">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                    <div>
+                                        <label class="block text-xs font-mono font-bold uppercase text-hv-slate mb-2">Seu Nome Completo</label>
+                                        <input type="text" id="triageName" required placeholder="Ex: Carlos Eduardo Silva" class="w-full bg-alabaster border border-hv-border rounded-xl px-4 py-3 text-sm text-hv-navy focus:outline-none focus:border-hv-orange">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-mono font-bold uppercase text-hv-slate mb-2">Perfil do Cotante</label>
+                                        <select id="triageProfile" class="w-full bg-alabaster border border-hv-border rounded-xl px-4 py-3 text-sm text-hv-navy focus:outline-none focus:border-hv-orange">
+                                            <option value="Pessoa Física / Família">Pessoa Física / Família</option>
+                                            <option value="Empresa / PME">Empresa / PME</option>
+                                            <option value="Motorista de App / Táxi">Motorista de App / Táxi</option>
+                                            <option value="Outro Perfil">Outro Perfil</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                    <div>
+                                        <label class="block text-xs font-mono font-bold uppercase text-hv-slate mb-2">Produto de Interesse</label>
+                                        <select id="triageModality" class="w-full bg-alabaster border border-hv-border rounded-xl px-4 py-3 text-sm text-hv-navy focus:outline-none focus:border-hv-orange">
+                                            <option value="Plano de Saúde">Plano de Saúde</option>
+                                            <option value="Proteção Veicular">Proteção Veicular</option>
+                                            <option value="Seguro de Carro">Seguro de Carro</option>
+                                            <option value="Consórcio / Financiamento">Consórcio / Financiamento</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-mono font-bold uppercase text-hv-slate mb-2">Valor do Bem / Veículo (Opcional)</label>
+                                        <input type="text" id="triageValue" placeholder="Ex: R$ 60.000,00" class="w-full bg-alabaster border border-hv-border rounded-xl px-4 py-3 text-sm text-hv-navy focus:outline-none focus:border-hv-orange">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-mono font-bold uppercase text-hv-slate mb-2">Observações ou Dúvida Específica</label>
+                                    <textarea id="triageNotes" rows="3" placeholder="Ex: Tenho 42 anos e gostaria de um plano para 3 pessoas..." class="w-full bg-alabaster border border-hv-border rounded-xl px-4 py-3 text-sm text-hv-navy focus:outline-none focus:border-hv-orange"></textarea>
+                                </div>
+
+                                <button type="submit" class="btn-primary w-full bg-hv-orange hover:bg-hv-orangeHover text-white font-display font-bold text-sm py-4 px-6 rounded-xl transition-colors flex items-center justify-center gap-3 shadow-sm">
+                                    <i class="fa-brands fa-whatsapp text-lg text-white"></i>
+                                    <span>Iniciar Atendimento Prioritário no WhatsApp</span>
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Canais Oficiais de Atendimento -->
+                        <div class="lg:col-span-5 space-y-6">
+                            <div class="bg-white p-7 rounded-2xl border border-hv-border space-y-4">
+                                <div class="w-10 h-10 rounded-xl bg-orange-50 text-hv-orange flex items-center justify-center text-lg">
+                                    <i class="fa-brands fa-whatsapp text-hv-orange"></i>
+                                </div>
+                                <h3 class="font-display font-bold text-xl text-hv-navy">Mesa Digital WhatsApp</h3>
+                                <p class="text-xs text-hv-slate leading-relaxed">
+                                    Atendimento direto com consultores humanos certificados, sem filas eletrônicas. Envie sua simulação ou os dados do veículo para uma cotação imediata.
+                                </p>
+                                <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20vim%20pelo%20site%20institucional%20da%20Home%20Vantagens." target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-xs font-display font-bold uppercase tracking-wider text-hv-orange hover:underline">
+                                    <span>Chamar Especialista Agora</span>
+                                    <i class="fa-solid fa-arrow-right text-hv-orange"></i>
+                                </a>
+                            </div>
+
+                            <div class="bg-hv-navy text-white p-7 rounded-2xl space-y-2">
+                                <span class="text-[10px] font-mono uppercase tracking-widest text-hv-orange">Horário de Atendimento</span>
+                                <div class="font-display font-bold text-lg">Segunda a Sexta, 08h30 às 18h00</div>
+                                <p class="text-xs text-white/70">
+                                    Cotações enviadas fora do horário recebem retorno prioritário na primeira hora útil seguinte.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Categorizado na Página de Atendimento -->
+            <section class="py-16 lg:py-24 bg-white">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="mb-10">
+                        <span class="text-xs font-mono font-bold uppercase tracking-wider text-hv-orange block mb-2">
+                            Base de Conhecimento
+                        </span>
+                        <h2 class="font-display font-bold text-3xl text-hv-navy">
+                            As perguntas que você faria antes de contratar
+                        </h2>
+                    </div>
+
+                    <div class="divide-y divide-hv-border border-t border-b border-hv-border">
+                        <div class="py-5">
+                            <button class="faq-btn w-full flex justify-between items-center text-left gap-4 focus:outline-none group">
+                                <span class="font-display font-bold text-base text-hv-navy group-hover:text-hv-orange transition-colors">
+                                    1. O que o produto de saúde de R$ 45 por mês inclui e como funciona o reembolso?
+                                </span>
+                                <span class="w-7 h-7 rounded-full border border-hv-border flex items-center justify-center flex-shrink-0 text-hv-navy">
+                                    <i class="fa-solid fa-plus text-xs text-hv-orange"></i>
+                                </span>
+                            </button>
+                            <div class="faq-answer hidden pt-3 text-sm text-hv-slate leading-relaxed">
+                                É uma mensalidade fixa, a partir de R$ 45, com reembolso de medicamentos e exames. Limites, prazos e regras de reembolso variam conforme o plano escolhido e são apresentados por escrito, antes da contratação, para você saber exatamente o que está levando.
+                            </div>
+                        </div>
+
+                        <div class="py-5">
+                            <button class="faq-btn w-full flex justify-between items-center text-left gap-4 focus:outline-none group">
+                                <span class="font-display font-bold text-base text-hv-navy group-hover:text-hv-orange transition-colors">
+                                    2. Proteção veicular ou seguro de carro: qual compensa mais para mim?
+                                </span>
+                                <span class="w-7 h-7 rounded-full border border-hv-border flex items-center justify-center flex-shrink-0 text-hv-navy">
+                                    <i class="fa-solid fa-plus text-xs text-hv-orange"></i>
+                                </span>
+                            </button>
+                            <div class="faq-answer hidden pt-3 text-sm text-hv-slate leading-relaxed">
+                                A proteção veicular costuma ter mensalidade menor e atende bem quem prioriza economia, inclusive motoristas de aplicativo. O seguro de carro é contratado com seguradora autorizada e fiscalizada pela SUSEP, com regras de cobertura padronizadas. Comparamos as duas opções lado a lado para o seu veículo e o seu perfil.
+                            </div>
+                        </div>
+
+                        <div class="py-5">
+                            <button class="faq-btn w-full flex justify-between items-center text-left gap-4 focus:outline-none group">
+                                <span class="font-display font-bold text-base text-hv-navy group-hover:text-hv-orange transition-colors">
+                                    3. Consórcio ou financiamento: qual é melhor para o meu caso?
+                                </span>
+                                <span class="w-7 h-7 rounded-full border border-hv-border flex items-center justify-center flex-shrink-0 text-hv-navy">
+                                    <i class="fa-solid fa-plus text-xs text-hv-orange"></i>
+                                </span>
+                            </button>
+                            <div class="faq-answer hidden pt-3 text-sm text-hv-slate leading-relaxed">
+                                No consórcio não incidem juros, apenas taxa de administração e fundo de reserva diluídos no prazo; a contemplação ocorre por sorteio ou lance, então é ideal para quem pode esperar. No financiamento, você recebe o bem imediatamente e paga juros mensais sobre o saldo devedor. Um especialista compara os dois cenários com os seus números.
+                            </div>
+                        </div>
+
+                        <div class="py-5">
+                            <button class="faq-btn w-full flex justify-between items-center text-left gap-4 focus:outline-none group">
+                                <span class="font-display font-bold text-base text-hv-navy group-hover:text-hv-orange transition-colors">
+                                    4. Estou com o nome negativado. Consigo contratar?
+                                </span>
+                                <span class="w-7 h-7 rounded-full border border-hv-border flex items-center justify-center flex-shrink-0 text-hv-navy">
+                                    <i class="fa-solid fa-plus text-xs text-hv-orange"></i>
+                                </span>
+                            </button>
+                            <div class="faq-answer hidden pt-3 text-sm text-hv-slate leading-relaxed">
+                                Na maioria dos casos, sim. Saúde e proteção veicular não usam score de crédito como critério principal; a análise considera perfil, região e uso. Já o financiamento passa pela análise de crédito da instituição parceira.
+                            </div>
+                        </div>
+
+                        <div class="py-5">
+                            <button class="faq-btn w-full flex justify-between items-center text-left gap-4 focus:outline-none group">
+                                <span class="font-display font-bold text-base text-hv-navy group-hover:text-hv-orange transition-colors">
+                                    5. Vocês cobram algo antes de liberar a cobertura? Como sei que não é golpe?
+                                </span>
+                                <span class="w-7 h-7 rounded-full border border-hv-border flex items-center justify-center flex-shrink-0 text-hv-navy">
+                                    <i class="fa-solid fa-plus text-xs text-hv-orange"></i>
+                                </span>
+                            </button>
+                            <div class="faq-answer hidden pt-3 text-sm text-hv-slate leading-relaxed">
+                                Jamais. Nossa assessoria é gratuita para você. Qualquer pedido de depósito antecipado, taxa de liberação ou transferência em nome da Home Vantagens é sinal de fraude e deve ser denunciado. Na dúvida, confirme o contato pelos nossos canais oficiais antes de pagar qualquer valor.
+                            </div>
+                        </div>
+
+                        <div class="py-5">
+                            <button class="faq-btn w-full flex justify-between items-center text-left gap-4 focus:outline-none group">
+                                <span class="font-display font-bold text-base text-hv-navy group-hover:text-hv-orange transition-colors">
+                                    6. Vocês atendem empresas?
+                                </span>
+                                <span class="w-7 h-7 rounded-full border border-hv-border flex items-center justify-center flex-shrink-0 text-hv-navy">
+                                    <i class="fa-solid fa-plus text-xs text-hv-orange"></i>
+                                </span>
+                            </button>
+                            <div class="faq-answer hidden pt-3 text-sm text-hv-slate leading-relaxed">
+                                Sim. Montamos propostas de saúde para empresas de acordo com o número de vidas e o orçamento. Fale com um especialista para combinar o melhor formato de atendimento para o seu negócio.
+                            </div>
+                        </div>
+
+                        <div class="py-5">
+                            <button class="faq-btn w-full flex justify-between items-center text-left gap-4 focus:outline-none group">
+                                <span class="font-display font-bold text-base text-hv-navy group-hover:text-hv-orange transition-colors">
+                                    7. Quanto tempo leva para contratar e começar a valer?
+                                </span>
+                                <span class="w-7 h-7 rounded-full border border-hv-border flex items-center justify-center flex-shrink-0 text-hv-navy">
+                                    <i class="fa-solid fa-plus text-xs text-hv-orange"></i>
+                                </span>
+                            </button>
+                            <div class="faq-answer hidden pt-3 text-sm text-hv-slate leading-relaxed">
+                                Depende do produto: saúde, de 24h a 7 dias; proteção veicular, cerca de 48h após a vistoria; seguro de carro, de 24h a 5 dias; consórcio e financiamento, de 7 a 30 dias. O processo é digital e acompanhado por um especialista em cada etapa.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-10 flex flex-col sm:flex-row sm:items-center gap-4">
+                        <p class="text-sm text-hv-slate">Não encontrou a sua dúvida? Um especialista responde no horário comercial, de segunda a sexta.</p>
+                        <a href="/atendimento" class="btn-primary inline-flex items-center justify-center gap-3 bg-hv-orange hover:bg-hv-orangeHover text-white font-display font-bold text-sm px-6 py-3.5 rounded-xl transition-colors flex-shrink-0">
+                            <span>Falar com especialista</span>
+                            <i class="fa-solid fa-arrow-right text-xs text-white"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+</BaseLayout>
+
+<script>
+        // -------------------------------------------------------------------
+        // 5. FORMULÁRIO DE TRIAGEM E INTERAÇÕES GERAIS
+        // -------------------------------------------------------------------
+        const triageForm = document.getElementById('triageForm');
+        if (triageForm) {
+            triageForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('triageName').value.trim();
+                const profile = document.getElementById('triageProfile').value;
+                const mod = document.getElementById('triageModality').value;
+                const val = document.getElementById('triageValue').value.trim() || 'A definir na simulação';
+                const notes = document.getElementById('triageNotes').value.trim();
+
+                let msg = `Olá! Enviei meu caso pela Central de Atendimento da Home Vantagens:\n\n` +
+                          `• *Nome:* ${name}\n` +
+                          `• *Perfil:* ${profile}\n` +
+                          `• *Operação:* ${mod}\n` +
+                          `• *Valor Estimado:* ${val}\n`;
+                if (notes) msg += `• *Observação:* ${notes}\n`;
+
+                window.open(`https://wa.me/5500000000000?text=${encodeURIComponent(msg)}`, '_blank');
+            });
+        }
+</script>

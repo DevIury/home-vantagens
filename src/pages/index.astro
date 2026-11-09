@@ -1,0 +1,353 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title={'Home Vantagens | Saúde, Proteção Veicular, Seguro Auto e Consórcio'} description={'Corretora Home Vantagens: compare planos de saúde, proteção veicular, seguro de carro e consórcio ou financiamento. Cotação gratuita e atendimento especializado.'} path='/' active={'home'} dark={false}>
+        <div>
+            
+            <!-- HERO SECTION MINIMALISTA & ARQUITETÔNICO (MODELO DE REFERÊNCIA) -->
+            <section class="relative bg-white pt-16 pb-24 lg:pt-28 lg:pb-36 border-b border-hv-border overflow-hidden">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        
+                        <!-- Coluna Esquerda: Tipografia Monumental + Parágrafo + Dupla de Botões -->
+                        <div class="lg:col-span-8 z-10">
+                            <h1 class="font-display font-extrabold text-[40px] sm:text-[56px] lg:text-[66px] text-[#061A3A] leading-[1.06] tracking-[-0.035em]">
+                                Tranquilidade para a sua<br class="hidden sm:inline" />
+                                saúde, seu carro e seu<br class="hidden sm:inline" />
+                                <span class="text-[#F36B21]">próximo patrimônio.</span>
+                            </h1>
+
+                            <p class="mt-7 text-base sm:text-[18.5px] text-[#475569] font-normal leading-[1.65] max-w-[590px]">
+                                Planos de saúde, proteção veicular, seguro de carro e consórcio ou financiamento. Comparamos as principais operadoras e seguradoras do país para você contratar com o melhor custo-benefício e suporte humano em cada etapa.
+                            </p>
+
+                            <div class="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                                <!-- Botão Primário (Idêntico à referência: Sólido, Uppercase, Seta à Direita) -->
+                                <a href="/simulador" class="btn-primary inline-flex items-center justify-center gap-3.5 bg-[#F36B21] hover:bg-[#D9560F] text-white font-display font-bold text-sm px-8 py-4.5 min-h-[54px] rounded-xl transition-all duration-200 shadow-sm">
+                                    <span>Falar com especialista</span>
+                                    <i class="fa-solid fa-arrow-right text-xs text-white"></i>
+                                </a>
+
+                                <!-- Botão Secundário (Idêntico à referência: Fundo Branco, Borda Sutil, Ícone Grid Laranja) -->
+                                <a href="/solucoes" class="btn-secondary inline-flex items-center justify-center gap-3 bg-white hover:bg-slate-50 text-[#061A3A] border border-[#CBD5E1] font-display font-semibold text-sm px-7 py-4.5 min-h-[54px] rounded-xl transition-all duration-200">
+                                    <svg class="w-4 h-4 flex-shrink-0 text-hv-orange" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="1.5" y="1.5" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.6"/>
+                                        <rect x="9.5" y="1.5" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.6"/>
+                                        <rect x="1.5" y="9.5" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.6"/>
+                                        <rect x="9.5" y="9.5" width="5" height="5" rx="1" stroke="currentColor" stroke-width="1.6"/>
+                                    </svg>
+                                    <span>Explorar Produtos</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Coluna Direita: Emblema Arquitetônico Monumental (Marca d'água Home Vantagens) -->
+                        <div class="lg:col-span-4 flex justify-center lg:justify-end items-center relative mt-8 lg:mt-0 select-none pointer-events-none">
+                            <div class="w-[290px] h-[290px] sm:w-[370px] sm:h-[370px] lg:w-[440px] lg:h-[440px] lg:-ml-20 flex items-center justify-center">
+                                <svg class="w-full h-full" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Moldura Externa da Marca Home Vantagens (Proporção 3D / Arquitetônica Limpa) -->
+                                    <rect x="28" y="28" width="344" height="344" rx="76" stroke="#E2E8F0" stroke-width="18" />
+                                    
+                                    <!-- Sombra Geométrica Interna (Profundidade Arquitetônica inspirada na referência) -->
+                                    <path d="M200 40 H296 C335.765 40 368 72.2355 368 112 V288 C368 327.765 335.765 360 296 360 H200 V40 Z" fill="#F1F5F9" fill-opacity="0.7" />
+                                    
+                                    <!-- Traçado Estrutural do "H" Oficial Home Vantagens em Escala Monumental -->
+                                    <!-- Haste Esquerda (Contorno Vetorial) -->
+                                    <path d="M104 96 H162 V174 H200 V226 H162 V304 H104 V96 Z" stroke="#E2E8F0" stroke-width="14" stroke-linejoin="round" fill="#FFFFFF" />
+                                    
+                                    <!-- Haste Direita (Preenchimento Sólido Sutil em Contraste) -->
+                                    <path d="M200 174 H238 V96 H296 V304 H238 V226 H200 V174 Z" fill="#E2E8F0" stroke="#E2E8F0" stroke-width="14" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SEÇÃO: COMPARADOR DE EFICIÊNCIA (BANCO DE VAREJO VS. HOME VANTAGENS) -->
+            <section class="py-20 lg:py-28 bg-white border-b border-hv-border">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        <div class="lg:col-span-5 space-y-5">
+                            <span class="text-xs font-mono font-semibold uppercase tracking-[0.18em] text-hv-orange block">
+                                Assimetria de Mercado Explicada
+                            </span>
+                            <h2 class="font-display font-bold text-3xl sm:text-4xl text-hv-navy tracking-editorial leading-tight">
+                                Por que o mesmo seguro custa tão diferente em cada lugar?
+                            </h2>
+                            <p class="text-sm sm:text-base text-hv-slate leading-relaxed">
+                                Seguradoras e operadoras de saúde praticam tabelas e comissões distintas para cada canal de venda. Quem contrata direto, sem comparar, costuma assumir o preço cheio e um pacote de coberturas que nem sempre faz sentido para o seu perfil.
+                            </p>
+                            <p class="text-sm sm:text-base text-hv-slate leading-relaxed">
+                                A <strong>Home Vantagens</strong> atua como seu braço técnico independente: cotamos seu perfil em 8+ operadoras e seguradoras parceiras, colocamos as propostas lado a lado e deixamos você escolher com clareza.
+                            </p>
+                            <div class="pt-2">
+                                <a href="/atendimento" class="inline-flex items-center gap-3 text-sm font-display font-bold text-hv-navy hover:text-hv-orange transition-colors group">
+                                    <span>Falar com especialista</span>
+                                    <span class="w-7 h-7 rounded-full bg-alabaster border border-hv-border flex items-center justify-center group-hover:border-hv-orange">
+                                        <i class="fa-solid fa-arrow-right text-xs text-hv-orange"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Quadro Comparativo Arquitetônico -->
+                        <div class="lg:col-span-7 bg-alabaster rounded-2xl border border-hv-border overflow-hidden">
+                            <div class="grid grid-cols-12 bg-hv-navy text-white text-xs font-mono uppercase tracking-wider py-4 px-6">
+                                <div class="col-span-4">Critério de Contratação</div>
+                                <div class="col-span-4 text-white/60">Direto na Operadora</div>
+                                <div class="col-span-4 text-hv-orange font-bold">Mesa Home Vantagens</div>
+                            </div>
+
+                            <div class="divide-y divide-hv-border text-xs sm:text-sm">
+                                <div class="grid grid-cols-12 py-4 px-6 items-center">
+                                    <div class="col-span-4 font-display font-bold text-hv-navy pr-2">Cotação de Preço</div>
+                                    <div class="col-span-4 text-hv-slate pr-2">Tabela única daquela operadora</div>
+                                    <div class="col-span-4 font-semibold text-hv-navy">Comparativo entre 8+ parceiros</div>
+                                </div>
+                                <div class="grid grid-cols-12 py-4 px-6 items-center bg-white/60">
+                                    <div class="col-span-4 font-display font-bold text-hv-navy pr-2">Coberturas</div>
+                                    <div class="col-span-4 text-hv-slate pr-2">Pacote padrão, sem ajuste fino</div>
+                                    <div class="col-span-4 font-semibold text-hv-emerald">Desenhadas para o seu perfil de uso</div>
+                                </div>
+                                <div class="grid grid-cols-12 py-4 px-6 items-center">
+                                    <div class="col-span-4 font-display font-bold text-hv-navy pr-2">Ativação</div>
+                                    <div class="col-span-4 text-hv-slate pr-2">5 a 15 dias com burocracia</div>
+                                    <div class="col-span-4 font-semibold text-hv-navy">24h a 7 dias, digital e acompanhada</div>
+                                </div>
+                                <div class="grid grid-cols-12 py-4 px-6 items-center bg-white/60">
+                                    <div class="col-span-4 font-display font-bold text-hv-navy pr-2">Letras Miúdas</div>
+                                    <div class="col-span-4 text-hv-slate pr-2">Carências e exclusões pouco claras</div>
+                                    <div class="col-span-4 font-semibold text-hv-orange">Resumo comparativo antes da assinatura</div>
+                                </div>
+                                <div class="grid grid-cols-12 py-4 px-6 items-center">
+                                    <div class="col-span-4 font-display font-bold text-hv-navy pr-2">Suporte</div>
+                                    <div class="col-span-4 text-hv-slate pr-2">URA eletrônica e atendentes rotativos</div>
+                                    <div class="col-span-4 font-semibold text-hv-navy">Especialista dedicado no WhatsApp</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SEÇÃO: RESUMO DAS 4 VERTICAIS COM NAVEGAÇÃO DIRETA -->
+            <section class="py-20 lg:py-28 bg-alabaster border-b border-hv-border">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                        <div>
+                            <span class="text-xs font-mono font-semibold uppercase tracking-[0.18em] text-hv-orange block mb-2">
+                                Arquitetura de Produtos
+                            </span>
+                            <h2 class="font-display font-bold text-3xl sm:text-4xl text-hv-navy tracking-editorial">
+                                Proteção e patrimônio para cada momento
+                            </h2>
+                        </div>
+                        <a href="/solucoes" class="btn-secondary self-start md:self-auto bg-white hover:bg-paper text-hv-navy border border-hv-border font-display font-bold text-sm px-5 py-3.5 rounded-xl transition-colors flex items-center gap-2">
+                            <span>Abrir Catálogo Completo de Produtos</span>
+                            <i class="fa-solid fa-arrow-right text-hv-orange"></i>
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Card 1 -->
+                        <div class="bg-white rounded-2xl p-7 border border-hv-border flex flex-col justify-between hover:border-hv-navy transition-all group">
+                            <div>
+                                <div class="flex justify-between items-center mb-6">
+                                    <span class="font-mono text-xs font-bold text-hv-orange bg-orange-50 px-2.5 py-1 rounded">01 / SAÚDE</span>
+                                    <span class="font-mono text-xs text-hv-slate">Individual ou familiar</span>
+                                </div>
+                                <h3 class="font-display font-bold text-xl text-hv-navy mb-2.5">Planos de Saúde</h3>
+                                <p class="text-xs text-hv-slate leading-relaxed mb-6">
+                                    Mensalidade fixa com reembolso de medicamentos e exames. Opções individuais, familiares e para empresas.
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-hv-border flex items-center justify-between">
+                                <div>
+                                    <span class="text-[10px] font-mono uppercase text-hv-slate block">Mensalidade a partir de</span>
+                                    <span class="font-display font-extrabold text-lg text-hv-navy tabular-nums">R$ 45,00</span>
+                                </div>
+                                <a href="/solucoes#saude" class="text-xs font-display font-bold text-hv-orange group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                                    <span>Ficha Técnica</span>
+                                    <i class="fa-solid fa-chevron-right text-[10px] text-hv-orange"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="bg-white rounded-2xl p-7 border border-hv-border flex flex-col justify-between hover:border-hv-navy transition-all group">
+                            <div>
+                                <div class="flex justify-between items-center mb-6">
+                                    <span class="font-mono text-xs font-bold text-hv-orange bg-orange-50 px-2.5 py-1 rounded">02 / VEÍCULOS</span>
+                                    <span class="font-mono text-xs text-hv-emerald font-semibold">Assistência 24h</span>
+                                </div>
+                                <h3 class="font-display font-bold text-xl text-hv-navy mb-2.5">Proteção Veicular</h3>
+                                <p class="text-xs text-hv-slate leading-relaxed mb-6">
+                                    Alternativa ao seguro tradicional com cobertura de roubo, furto, colisão, assistência 24h e guincho em todo o Brasil.
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-hv-border flex items-center justify-between">
+                                <div>
+                                    <span class="text-[10px] font-mono uppercase text-hv-slate block">Economia média</span>
+                                    <span class="font-display font-extrabold text-lg text-hv-navy">Até 70%</span>
+                                </div>
+                                <a href="/solucoes#protecao" class="text-xs font-display font-bold text-hv-orange group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                                    <span>Ficha Técnica</span>
+                                    <i class="fa-solid fa-chevron-right text-[10px] text-hv-orange"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="bg-white rounded-2xl p-7 border border-hv-border flex flex-col justify-between hover:border-hv-navy transition-all group">
+                            <div>
+                                <div class="flex justify-between items-center mb-6">
+                                    <span class="font-mono text-xs font-bold text-hv-orange bg-orange-50 px-2.5 py-1 rounded">03 / AUTO</span>
+                                    <span class="font-mono text-xs text-hv-slate">Cotação em 3 min</span>
+                                </div>
+                                <h3 class="font-display font-bold text-xl text-hv-navy mb-2.5">Seguro de Carro</h3>
+                                <p class="text-xs text-hv-slate leading-relaxed mb-6">
+                                    Comparativo entre seguradoras com cobertura total, franquia reduzida, carro reserva e proteção para motorista e passageiros.
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-hv-border flex items-center justify-between">
+                                <div>
+                                    <span class="text-[10px] font-mono uppercase text-hv-slate block">Cobertura</span>
+                                    <span class="font-display font-extrabold text-lg text-hv-navy">Completa ou reduzida</span>
+                                </div>
+                                <a href="/solucoes#auto" class="text-xs font-display font-bold text-hv-orange group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                                    <span>Ficha Técnica</span>
+                                    <i class="fa-solid fa-chevron-right text-[10px] text-hv-orange"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="bg-white rounded-2xl p-7 border border-hv-border flex flex-col justify-between hover:border-hv-navy transition-all group">
+                            <div>
+                                <div class="flex justify-between items-center mb-6">
+                                    <span class="font-mono text-xs font-bold text-hv-orange bg-orange-50 px-2.5 py-1 rounded">04 / PATRIMÔNIO</span>
+                                    <span class="font-mono text-xs text-hv-slate">Sem juros</span>
+                                </div>
+                                <h3 class="font-display font-bold text-xl text-hv-navy mb-2.5">Consórcio & Financiamento</h3>
+                                <p class="text-xs text-hv-slate leading-relaxed mb-6">
+                                    Realize a compra do carro, da casa ou do projeto com consórcio sem juros ou financiamento com parcelas que caibam no orçamento.
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-hv-border flex items-center justify-between">
+                                <div>
+                                    <span class="text-[10px] font-mono uppercase text-hv-slate block">Parcelas a partir de</span>
+                                    <span class="font-display font-extrabold text-lg text-hv-navy">R$ 499,00</span>
+                                </div>
+                                <a href="/solucoes#consorcio" class="text-xs font-display font-bold text-hv-orange group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                                    <span>Ficha Técnica</span>
+                                    <i class="fa-solid fa-chevron-right text-[10px] text-hv-orange"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEÇÃO: ESTUDOS DE CASO AUDITADOS (MATEMÁTICA REAL) -->
+            <section class="py-20 bg-hv-navy text-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex flex-col md:flex-row justify-between md:items-end mb-12 gap-6">
+                        <div>
+                            <span class="text-xs font-mono font-semibold uppercase tracking-[0.2em] text-hv-orange block mb-2">
+                                Resultados Reais na Prática
+                            </span>
+                            <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-editorial">
+                                Casos reais estruturados pela nossa mesa
+                            </h2>
+                        </div>
+                        <a href="/atendimento" class="btn-primary bg-hv-orange hover:bg-hv-orangeHover text-white font-display font-bold text-sm px-6 py-3.5 rounded-xl transition-colors self-start">
+                            Falar com especialista
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-hv-navyMid p-7 rounded-2xl border border-white/10 flex flex-col justify-between space-y-6">
+                            <div>
+                                <div class="flex justify-between items-center text-[11px] font-mono text-white/60 pb-3 border-b border-white/10">
+                                    <span>CASO 01 • FAMÍLIA COM 3 VIDAS</span>
+                                    <span class="text-hv-orange">SAÚDE</span>
+                                </div>
+                                <h3 class="font-display font-bold text-lg text-white mt-4">
+                                    Plano familiar com rede ampliada e carência reduzida
+                                </h3>
+                                <p class="text-xs text-white/70 mt-2 leading-relaxed">
+                                    Família pagava R$ 1.480,00 em um plano antigo com reajuste anual de 24%; comparamos 5 operadoras e trocamos sem perder o atendimento.
+                                </p>
+                            </div>
+                            <div class="bg-hv-navy p-4 rounded-xl border border-white/10 space-y-2 text-xs font-mono">
+                                <div class="flex justify-between text-white/70">
+                                    <span>Economia Mensal:</span>
+                                    <span class="text-white font-bold">R$ 410,00</span>
+                                </div>
+                                <div class="flex justify-between text-hv-orange font-bold pt-2 border-t border-white/10">
+                                    <span>Nova Mensalidade:</span>
+                                    <span>R$ 1.070,00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-hv-navyMid p-7 rounded-2xl border border-white/10 flex flex-col justify-between space-y-6">
+                            <div>
+                                <div class="flex justify-between items-center text-[11px] font-mono text-white/60 pb-3 border-b border-white/10">
+                                    <span>CASO 02 • MOTORISTA DE APP</span>
+                                    <span class="text-emerald-400">PROTEÇÃO VEICULAR</span>
+                                </div>
+                                <h3 class="font-display font-bold text-lg text-white mt-4">
+                                    Cobertura completa para veículo usado em aplicativo
+                                </h3>
+                                <p class="text-xs text-white/70 mt-2 leading-relaxed">
+                                    Motorista teve o seguro tradicional recusado pelo uso comercial; encontramos proteção veicular com assistência 24h e reboque nacional.
+                                </p>
+                            </div>
+                            <div class="bg-hv-navy p-4 rounded-xl border border-white/10 space-y-2 text-xs font-mono">
+                                <div class="flex justify-between text-white/70">
+                                    <span>Economia Anual:</span>
+                                    <span class="text-white font-bold">R$ 2.310,00</span>
+                                </div>
+                                <div class="flex justify-between text-emerald-400 font-bold pt-2 border-t border-white/10">
+                                    <span>Cobertura Ativada em:</span>
+                                    <span>48 horas</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-hv-navyMid p-7 rounded-2xl border border-white/10 flex flex-col justify-between space-y-6">
+                            <div>
+                                <div class="flex justify-between items-center text-[11px] font-mono text-white/60 pb-3 border-b border-white/10">
+                                    <span>CASO 03 • PRIMEIRO IMÓVEL</span>
+                                    <span class="text-hv-orange">CONSÓRCIO</span>
+                                </div>
+                                <h3 class="font-display font-bold text-lg text-white mt-4">
+                                    Aquisição de imóvel sem os juros do financiamento
+                                </h3>
+                                <p class="text-xs text-white/70 mt-2 leading-relaxed">
+                                    Casal optou por consórcio de R$ 280 mil para fugir dos juros compostos, planejar a entrada e manter o orçamento sob controle.
+                                </p>
+                            </div>
+                            <div class="bg-hv-navy p-4 rounded-xl border border-white/10 space-y-2 text-xs font-mono">
+                                <div class="flex justify-between text-white/70">
+                                    <span>Economia Estimada:</span>
+                                    <span class="text-white font-bold">R$ 198.400,00</span>
+                                </div>
+                                <div class="flex justify-between text-hv-orange font-bold pt-2 border-t border-white/10">
+                                    <span>Prazo do Plano:</span>
+                                    <span>180 meses</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+</BaseLayout>

@@ -1,0 +1,441 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title={'Simulador e Cotação Online | Home Vantagens'} description={'Simule planos de saúde, proteção veicular e seguro de carro em tempo real e compare consórcio x financiamento. Cotação gratuita pela Home Vantagens.'} path='/simulador' active={null} dark={true}>
+        <div>
+            
+            <!-- Header do Terminal de Simulação -->
+            <section class="bg-hv-navy text-white py-12 lg:py-16 border-b border-white/10">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                        <div>
+                            <div class="flex items-center gap-2 text-xs font-mono text-white/60 mb-3">
+                                <a href="/" class="hover:text-white">Início</a>
+                                <span>/</span>
+                                <span class="text-hv-orange">Terminal de Cotação & Simulação</span>
+                            </div>
+                            <h1 class="font-display font-extrabold text-3xl sm:text-5xl tracking-editorial">
+                                Mesa de Cotação & Comparativo de Planos
+                            </h1>
+                        </div>
+
+                        <!-- Chaveador de Modo do Terminal: Cotação de Seguros vs. Consórcio x Financiamento -->
+                        <div class="bg-hv-navyMid p-1.5 rounded-xl border border-white/15 inline-flex self-start">
+                            <button id="modeBtnNovo" onclick="switchCalculatorMode('novo')" class="btn-primary px-4 py-2.5 rounded-xl bg-hv-orange text-white font-display font-bold text-sm transition-all">
+                                1. Cotar Seguros e Saúde
+                            </button>
+                            <button id="modeBtnPort" onclick="switchCalculatorMode('portabilidade')" class="px-4 py-2.5 rounded-lg text-white/75 hover:text-white font-display font-bold text-xs uppercase tracking-wider transition-all">
+                                2. Consórcio x Financiamento
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Corpo da Calculadora -->
+            <section class="py-12 lg:py-20 bg-alabaster">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    
+                    <!-- MODO A: COTAÇÃO DE SAÚDE, PROTEÇÃO VEICULAR E SEGURO AUTO -->
+                    <div id="calcModeNovo" class="bg-white rounded-2xl border border-hv-border shadow-lg overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+                        
+                        <!-- Controles (7 Colunas) -->
+                        <div class="lg:col-span-7 p-6 sm:p-10 lg:p-12 space-y-8">
+                            <div>
+                                <label class="block text-xs font-mono font-bold uppercase tracking-wider text-hv-slate mb-3">
+                                    Passo 01 • Selecione o Produto
+                                </label>
+                                <div class="grid grid-cols-3 gap-2.5" id="termModTabs">
+                                    <button type="button" data-mod="saude" data-base="49" data-mult="1.22" data-label="Plano de Saúde" data-speed="24h a 7 dias" data-slider="vidas" class="term-mod-btn py-3 px-3 rounded-xl border-2 border-hv-navy bg-hv-navy text-white font-display font-bold text-xs text-center transition-all">
+                                        Saúde
+                                    </button>
+                                    <button type="button" data-mod="protecao" data-base="0.0018" data-mult="1.45" data-label="Proteção Veicular" data-speed="48h após vistoria" data-slider="veiculo" class="term-mod-btn py-3 px-3 rounded-xl border border-hv-border bg-alabaster text-hv-navy hover:border-hv-navy/40 font-display font-semibold text-xs text-center transition-all">
+                                        Proteção Veicular
+                                    </button>
+                                    <button type="button" data-mod="auto" data-base="0.0026" data-mult="1.35" data-label="Seguro de Carro" data-speed="24h a 5 dias" data-slider="veiculo" class="term-mod-btn py-3 px-3 rounded-xl border border-hv-border bg-alabaster text-hv-navy hover:border-hv-navy/40 font-display font-semibold text-xs text-center transition-all">
+                                        Seguro Auto
+                                    </button>
+                                </div>
+                                <p class="text-[11px] text-hv-slate mt-3">
+                                    Consórcio e financiamento possuem calculadora própria no modo <strong class="text-hv-navy">2. Consórcio x Financiamento</strong>.
+                                </p>
+                            </div>
+
+                            <!-- Slider Perfil -->
+                            <div class="pt-2">
+                                <div class="flex justify-between items-baseline mb-3">
+                                    <label for="termAmount" class="text-xs font-mono font-bold uppercase tracking-wider text-hv-slate">
+                                        Passo 02 • Idade do Titular / Condutor
+                                    </label>
+                                    <span id="termAmountDisplay" class="font-display font-extrabold text-3xl text-hv-navy tabular-nums">
+                                        35 anos
+                                    </span>
+                                </div>
+                                <input type="range" id="termAmount" min="18" max="75" step="1" value="35" class="swiss-slider">
+                                <div class="flex justify-between text-[11px] font-mono text-hv-slate mt-2 tabular-nums">
+                                    <span>18</span>
+                                    <span>36</span>
+                                    <span>54</span>
+                                    <span>75</span>
+                                </div>
+                            </div>
+
+                            <!-- Slider Dinâmico: Vidas (saúde) ou Valor do Veículo -->
+                            <div class="pt-2">
+                                <div class="flex justify-between items-baseline mb-3">
+                                    <label for="termMonths" id="termProfileLabel" class="text-xs font-mono font-bold uppercase tracking-wider text-hv-slate">
+                                        Passo 03 • Quantidade de Vidas
+                                    </label>
+                                    <span id="termMonthsDisplay" class="font-display font-bold text-2xl text-hv-navy tabular-nums">
+                                        1 vida
+                                    </span>
+                                </div>
+                                <input type="range" id="termMonths" min="1" max="6" step="1" value="1" class="swiss-slider">
+                                <div id="termProfileTicks" class="flex justify-between text-[11px] font-mono text-hv-slate mt-2 tabular-nums">
+                                    <span>1</span>
+                                    <span>2</span>
+                                    <span>4</span>
+                                    <span>6</span>
+                                </div>
+                            </div>
+
+                            <!-- Comparativo Visual Automático de Economia -->
+                            <div class="bg-alabaster p-6 rounded-xl border border-hv-border space-y-4">
+                                <div class="flex items-center justify-between gap-3">
+                                    <span class="text-xs font-mono font-bold uppercase tracking-wider text-hv-navy">
+                                        Comparativo de Mensalidade
+                                    </span>
+                                    <span id="termTotalSavingsBadge" class="text-xs font-mono font-bold text-hv-emerald bg-emerald-50 px-2.5 py-1 rounded border border-emerald-200">
+                                        Economia estimada: R$ 0,00/mês
+                                    </span>
+                                </div>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+                                    <div class="bg-white p-4 rounded-lg border border-hv-border">
+                                        <span class="text-[11px] text-hv-slate block">Média do Mercado (<span id="termBankRateLabel">+45%</span>)</span>
+                                        <span id="termBankPmtDisplay" class="font-mono font-bold text-base text-hv-slate line-through tabular-nums">R$ 0,00 /mês</span>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg border-2 border-hv-orange">
+                                        <span class="text-[11px] text-hv-navy font-semibold block">Mesa Home Vantagens</span>
+                                        <span id="termOurPmtDisplay" class="font-mono font-bold text-base text-hv-orange tabular-nums">R$ 0,00 /mês</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Demonstrativo Executivo (5 Colunas) -->
+                        <div class="lg:col-span-5 bg-hv-navy text-white p-6 sm:p-10 lg:p-12 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between pb-4 border-b border-white/15">
+                                    <span class="text-[11px] font-mono uppercase tracking-widest text-white/60">Estimativa Preliminar</span>
+                                    <span id="termModalityBadge" class="text-xs font-mono font-semibold text-hv-orange">Plano de Saúde</span>
+                                </div>
+
+                                <div class="py-7 border-b border-white/15">
+                                    <span id="termResultLabel" class="text-xs text-white/70 block mb-1.5">Mensalidade Estimada:</span>
+                                    <div id="termResultValue" class="font-display font-extrabold text-4xl sm:text-5xl text-white tabular-nums tracking-tight">
+                                        R$ 119,00
+                                    </div>
+                                    <p id="termResultSub" class="text-xs text-hv-orange font-mono mt-2">
+                                        Referência inicial • valores sujeitos a análise e operadora escolhida
+                                    </p>
+                                </div>
+
+                                <div class="py-6 space-y-3 text-xs border-b border-white/15 font-mono">
+                                    <div class="flex justify-between">
+                                        <span class="text-white/60">Perfil Considerado:</span>
+                                        <span id="termSummaryNet" class="text-white font-semibold tabular-nums">35 anos • 1 vida</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-white/60">Cobertura:</span>
+                                        <span class="text-white font-semibold">Mensal, renovação automática</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-white/60">Prazo de Ativação:</span>
+                                        <span id="termSummarySpeed" class="text-emerald-400 font-semibold">24h a 7 dias</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-white/60">Taxa de Assessoria:</span>
+                                        <span class="text-white font-semibold">R$ 0,00 (Gratuito)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pt-6 space-y-3">
+                                <a id="termWhatsappLink" href="#" target="_blank" rel="noopener" class="btn-primary w-full bg-hv-orange hover:bg-hv-orangeHover text-white font-display font-bold text-sm py-4 px-6 rounded-xl transition-colors flex items-center justify-center gap-3 shadow-lg">
+                                    <i class="fa-brands fa-whatsapp text-lg text-white"></i>
+                                    <span>Falar com especialista</span>
+                                </a>
+                                <p class="text-[11px] text-center text-white/60">
+                                    Cotação comparativa em 8+ operadoras e seguradoras, sem compromisso.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MODO B: COMPARADOR CONSÓRCIO X FINANCIAMENTO -->
+                    <div id="calcModePortabilidade" class="hidden bg-white rounded-2xl border border-hv-border shadow-lg overflow-hidden grid-cols-1 lg:grid-cols-12">
+                        <div class="lg:col-span-7 p-6 sm:p-10 lg:p-12 space-y-8">
+                            <div class="space-y-2">
+                                <span class="text-xs font-mono font-bold uppercase tracking-wider text-hv-orange">
+                                    Planejamento Patrimonial
+                                </span>
+                                <h3 class="font-display font-bold text-2xl sm:text-3xl text-hv-navy">
+                                    Consórcio ou financiamento? Compare o custo antes de decidir
+                                </h3>
+                                <p class="text-xs sm:text-sm text-hv-slate">
+                                    Informe o valor do bem e o prazo desejado. Calculamos a parcela estimada de um consórcio (sem juros) e de um financiamento bancário com a taxa que você informar.
+                                </p>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="simAssetValue" class="block text-xs font-mono font-bold uppercase tracking-wider text-hv-slate mb-2">
+                                        Valor do Bem (R$)
+                                    </label>
+                                    <input type="number" id="simAssetValue" value="60000" min="5000" max="1000000" step="1000" class="w-full bg-alabaster border border-hv-border rounded-xl px-4 py-3.5 font-display font-bold text-xl text-hv-navy focus:outline-none focus:border-hv-orange tabular-nums">
+                                </div>
+                                <div>
+                                    <label for="simMonths" class="block text-xs font-mono font-bold uppercase tracking-wider text-hv-slate mb-2">
+                                        Prazo do Plano (Meses)
+                                    </label>
+                                    <input type="number" id="simMonths" value="120" min="12" max="240" step="6" class="w-full bg-alabaster border border-hv-border rounded-xl px-4 py-3.5 font-display font-bold text-xl text-hv-navy focus:outline-none focus:border-hv-orange tabular-nums">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="simFinRate" class="flex justify-between text-xs font-mono font-bold uppercase tracking-wider text-hv-slate mb-2">
+                                    <span>Taxa do Financiamento Bancário</span>
+                                    <span id="simFinRateDisplay" class="text-hv-navy font-bold">1,29% a.m.</span>
+                                </label>
+                                <input type="range" id="simFinRate" min="0.80" max="2.50" step="0.01" value="1.29" class="swiss-slider">
+                                <div class="flex justify-between text-[11px] font-mono text-hv-slate mt-1.5">
+                                    <span>0,80% a.m.</span>
+                                    <span>Média: 1,29% a.m.</span>
+                                    <span>2,50% a.m.</span>
+                                </div>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-alabaster border border-hv-border text-xs text-hv-slate">
+                                <strong class="text-hv-navy">Como funciona a matemática:</strong> no consórcio não incidem juros, apenas taxa de administração e fundo de reserva (estimados em <strong>18%</strong> diluídos no prazo). No financiamento, aplicamos a Tabela Price com a taxa informada. Os valores são referências preliminares.
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-5 bg-hv-navy text-white p-6 sm:p-10 lg:p-12 flex flex-col justify-between">
+                            <div class="space-y-6">
+                                <div class="pb-4 border-b border-white/15 flex justify-between items-center">
+                                    <span class="text-[11px] font-mono uppercase tracking-widest text-white/60">Diagnóstico Comparativo</span>
+                                    <span class="text-xs font-mono font-bold text-emerald-400">Consórcio sem juros</span>
+                                </div>
+
+                                <div class="bg-hv-navyMid p-5 rounded-xl border border-white/10">
+                                    <span class="text-xs font-mono uppercase text-hv-orange block mb-1">Opção A • Consórcio:</span>
+                                    <div id="consorcioPmtResult" class="font-display font-extrabold text-3xl sm:text-4xl text-white tabular-nums">
+                                        R$ 590,00 <span class="text-sm font-normal text-white/60">/mês</span>
+                                    </div>
+                                    <span class="text-[11px] text-white/65 block mt-1">Taxa de administração estimada de 18% diluída no prazo</span>
+                                </div>
+
+                                <div class="bg-hv-navyMid p-5 rounded-xl border border-white/10">
+                                    <span class="text-xs font-mono uppercase text-emerald-400 block mb-1">Opção B • Financiamento:</span>
+                                    <div id="financiamentoPmtResult" class="font-display font-extrabold text-3xl sm:text-4xl text-white tabular-nums">
+                                        R$ 1.031,00 <span class="text-sm font-normal text-white/60">/mês</span>
+                                    </div>
+                                    <span id="financiamentoTotalResult" class="text-[11px] text-emerald-400 font-mono block mt-1">Custo total estimado: R$ 123.720,00</span>
+                                </div>
+                            </div>
+
+                            <div class="pt-6 space-y-3">
+                                <a id="consorcioWhatsappLink" href="#" target="_blank" rel="noopener" class="btn-primary w-full bg-hv-orange hover:bg-hv-orangeHover text-white font-display font-bold text-sm py-4 px-6 rounded-xl transition-colors flex items-center justify-center gap-3 shadow-lg">
+                                    <i class="fa-brands fa-whatsapp text-lg text-white"></i>
+                                    <span>Falar com especialista</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+</BaseLayout>
+
+<script>
+        // Formatador Monetário BRL
+        const formatBRL = (val) => {
+            return new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+                minimumFractionDigits: 2
+            }).format(val);
+        };
+
+        // -------------------------------------------------------------------
+        // 4. TERMINAL DE SIMULAÇÃO (MODO DUPLO: NOVO CRÉDITO + PORTABILIDADE)
+        // -------------------------------------------------------------------
+        window.switchCalculatorMode = function(mode) {
+            const modeNovo = document.getElementById('calcModeNovo');
+            const modePort = document.getElementById('calcModePortabilidade');
+            const btnNovo = document.getElementById('modeBtnNovo');
+            const btnPort = document.getElementById('modeBtnPort');
+
+            if (mode === 'portabilidade') {
+                modeNovo.classList.add('hidden');
+                modePort.classList.remove('hidden');
+                modePort.classList.add('grid');
+                btnPort.className = 'px-4 py-2.5 rounded-lg bg-hv-orange text-white font-display font-bold text-xs uppercase tracking-wider transition-all';
+                btnNovo.className = 'px-4 py-2.5 rounded-lg text-white/75 hover:text-white font-display font-bold text-xs uppercase tracking-wider transition-all';
+                updatePortabilityCalc();
+            } else {
+                modePort.classList.add('hidden');
+                modePort.classList.remove('grid');
+                modeNovo.classList.remove('hidden');
+                btnNovo.className = 'px-4 py-2.5 rounded-lg bg-hv-orange text-white font-display font-bold text-xs uppercase tracking-wider transition-all';
+                btnPort.className = 'px-4 py-2.5 rounded-lg text-white/75 hover:text-white font-display font-bold text-xs uppercase tracking-wider transition-all';
+                updateTerminalCalc();
+            }
+        };
+
+        // Estado do Modo A (Cotação de Saúde e Seguros)
+        let termState = {
+            mod: 'saude',
+            base: 49,
+            mult: 1.22,
+            label: 'Plano de Saúde',
+            speed: '24h a 7 dias',
+            slider: 'vidas'
+        };
+
+        const termAmountEl = document.getElementById('termAmount');
+        const termMonthsEl = document.getElementById('termMonths');
+        const termProfileLabel = document.getElementById('termProfileLabel');
+        const termProfileTicks = document.getElementById('termProfileTicks');
+        let currentSliderType = 'vidas';
+
+        function updateTerminalCalc() {
+            const age = parseInt(termAmountEl.value, 10) || 35;
+            const profileVal = parseFloat(termMonthsEl.value) || 1;
+            const ageFactor = 1 + Math.max(0, age - 30) * 0.012;
+
+            let monthly, profileText, profileDisplay;
+
+            if (termState.slider === 'vidas') {
+                monthly = Math.max(45, termState.base * profileVal); // mensalidade fixa por vida (sem variação por idade)
+                profileText = `${age} anos • ${profileVal} ${profileVal === 1 ? 'vida' : 'vidas'}`;
+                profileDisplay = `${profileVal} ${profileVal === 1 ? 'vida' : 'vidas'}`;
+            } else {
+                monthly = Math.max(79, termState.base * profileVal * ageFactor);
+                profileText = `${age} anos • ${formatBRL(profileVal)}`;
+                profileDisplay = formatBRL(profileVal);
+            }
+
+            const market = monthly * termState.mult;
+            const savings = market - monthly;
+
+            document.getElementById('termAmountDisplay').textContent = `${age} anos`;
+            document.getElementById('termMonthsDisplay').textContent = profileDisplay;
+            document.getElementById('termModalityBadge').textContent = termState.label;
+            document.getElementById('termSummaryNet').textContent = profileText;
+            document.getElementById('termSummarySpeed').textContent = termState.speed;
+            document.getElementById('termBankRateLabel').textContent = `+${Math.round((termState.mult - 1) * 100)}%`;
+            document.getElementById('termBankPmtDisplay').textContent = `${formatBRL(market)} /mês`;
+            document.getElementById('termOurPmtDisplay').textContent = `${formatBRL(monthly)} /mês`;
+            document.getElementById('termTotalSavingsBadge').textContent = `Economia estimada: ${formatBRL(savings)}/mês`;
+
+            document.getElementById('termResultLabel').textContent = 'Mensalidade Estimada:';
+            document.getElementById('termResultValue').textContent = formatBRL(monthly);
+            document.getElementById('termResultSub').textContent = `Perfil ${age} anos • referência sujeita a análise da operadora`;
+
+            const wpMessage = `Olá! Fiz uma cotação no portal da Home Vantagens:\n\n• *Produto:* ${termState.label}\n• *Perfil:* ${profileText}\n• *Mensalidade Estimada:* ${formatBRL(monthly)}\n\nGostaria de receber as propostas oficiais das operadoras parceiras.`;
+            document.getElementById('termWhatsappLink').href = `https://wa.me/5500000000000?text=${encodeURIComponent(wpMessage)}`;
+        }
+
+        function configureProfileSlider(type) {
+            if (type === 'veiculo') {
+                termProfileLabel.textContent = 'Passo 03 • Valor do Veículo';
+                termMonthsEl.min = 20000;
+                termMonthsEl.max = 250000;
+                termMonthsEl.step = 5000;
+                termMonthsEl.value = 60000;
+                termProfileTicks.innerHTML = '<span>R$ 20 mil</span><span>R$ 80 mil</span><span>R$ 160 mil</span><span>R$ 250 mil</span>';
+            } else {
+                termProfileLabel.textContent = 'Passo 03 • Quantidade de Vidas';
+                termMonthsEl.min = 1;
+                termMonthsEl.max = 6;
+                termMonthsEl.step = 1;
+                termMonthsEl.value = 1;
+                termProfileTicks.innerHTML = '<span>1</span><span>2</span><span>4</span><span>6</span>';
+            }
+        }
+
+        function activateTerminalModality(modKey) {
+            let selected = null;
+            document.querySelectorAll('.term-mod-btn').forEach(btn => {
+                if (btn.dataset.mod === modKey) {
+                    selected = btn;
+                    btn.className = 'term-mod-btn py-3 px-3 rounded-xl border-2 border-hv-navy bg-hv-navy text-white font-display font-bold text-xs text-center transition-all';
+                } else {
+                    btn.className = 'term-mod-btn py-3 px-3 rounded-xl border border-hv-border bg-alabaster text-hv-navy hover:border-hv-navy/40 font-display font-semibold text-xs text-center transition-all';
+                }
+            });
+            if (!selected) return;
+
+            termState.mod = selected.dataset.mod;
+            termState.base = parseFloat(selected.dataset.base);
+            termState.mult = parseFloat(selected.dataset.mult);
+            termState.label = selected.dataset.label;
+            termState.speed = selected.dataset.speed;
+            termState.slider = selected.dataset.slider;
+
+            if (termState.slider !== currentSliderType) {
+                currentSliderType = termState.slider;
+                configureProfileSlider(currentSliderType);
+            }
+
+            updateTerminalCalc();
+        }
+
+        document.querySelectorAll('.term-mod-btn').forEach(btn => {
+            btn.addEventListener('click', () => activateTerminalModality(btn.dataset.mod));
+        });
+        termAmountEl.addEventListener('input', updateTerminalCalc);
+        termMonthsEl.addEventListener('input', updateTerminalCalc);
+
+        // Estado do Modo B (Comparador Consórcio x Financiamento)
+        const simAssetEl = document.getElementById('simAssetValue');
+        const simMonthsEl = document.getElementById('simMonths');
+        const simFinRateEl = document.getElementById('simFinRate');
+
+        function updatePortabilityCalc() {
+            const asset = Math.max(5000, parseFloat(simAssetEl.value) || 60000);
+            const n = Math.min(240, Math.max(12, parseInt(simMonthsEl.value, 10) || 120));
+            const rate = Math.max(0.001, (parseFloat(simFinRateEl.value) || 1.29) / 100);
+            const adminFee = 0.18;
+
+            const consortiumPmt = (asset * (1 + adminFee)) / n;
+            const financingPmt = (asset * rate) / (1 - Math.pow(1 + rate, -n));
+            const financingTotal = financingPmt * n;
+            const consortiumTotal = asset * (1 + adminFee);
+            const savings = Math.max(0, financingTotal - consortiumTotal);
+
+            document.getElementById('simFinRateDisplay').textContent = `${(rate * 100).toFixed(2).replace('.', ',')}% a.m.`;
+            document.getElementById('consorcioPmtResult').innerHTML = `${formatBRL(consortiumPmt)} <span class="text-sm font-normal text-white/60">/mês</span>`;
+            document.getElementById('financiamentoPmtResult').innerHTML = `${formatBRL(financingPmt)} <span class="text-sm font-normal text-white/60">/mês</span>`;
+            document.getElementById('financiamentoTotalResult').textContent = `Custo total estimado: ${formatBRL(financingTotal)} • Economia no consórcio: ${formatBRL(savings)}`;
+
+            const wpPortMsg = `Olá! Simulei *Consórcio x Financiamento* no site da Home Vantagens:\n\n• *Valor do Bem:* ${formatBRL(asset)}\n• *Prazo:* ${n} meses\n• *Parcela Consórcio:* ${formatBRL(consortiumPmt)}\n• *Parcela Financiamento:* ${formatBRL(financingPmt)} (${(rate * 100).toFixed(2).replace('.', ',')}% a.m.)\n• *Economia estimada:* ${formatBRL(savings)}\n\nGostaria de uma simulação oficial.`;
+            document.getElementById('consorcioWhatsappLink').href = `https://wa.me/5500000000000?text=${encodeURIComponent(wpPortMsg)}`;
+        }
+
+        simAssetEl.addEventListener('input', updatePortabilityCalc);
+        simMonthsEl.addEventListener('input', updatePortabilityCalc);
+        simFinRateEl.addEventListener('input', updatePortabilityCalc);
+// Inicialização dos dois modos + modo vindo da URL (#saude/#protecao/#auto/#consorcio/#portabilidade)
+document.addEventListener('DOMContentLoaded', () => {
+    updateTerminalCalc();
+    updatePortabilityCalc();
+    const h = window.location.hash.replace('#', '');
+    if (['saude', 'protecao', 'auto'].includes(h)) activateTerminalModality(h);
+    else if (['consorcio', 'portabilidade'].includes(h)) switchCalculatorMode('portabilidade');
+});
+
+</script>

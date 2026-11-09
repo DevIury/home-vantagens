@@ -1,0 +1,9 @@
+# Dependências e build do Astro
+node_modules/
+dist/
+.astro/
+
+# Logs e SO
+npm-debug.log*
+.DS_Store
+Thumbs.db

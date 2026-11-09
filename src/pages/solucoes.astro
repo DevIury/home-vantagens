@@ -1,0 +1,312 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title={'Serviços e Produtos | Saúde, Proteção Veicular, Seguro Auto e Consórcio — Home Vantagens'} description={'Conheça os 4 produtos da Home Vantagens: planos de saúde, proteção veicular, seguro de carro e consórcio ou financiamento. Fichas técnicas, preços e cotação gratuita.'} path='/solucoes' active={'solucoes'} dark={true}>
+        <div>
+            
+            <!-- Cabeçalho da Página Soluções -->
+            <section class="bg-hv-navy text-white py-14 lg:py-20 border-b border-white/10">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex items-center gap-2 text-xs font-mono text-white/60 mb-4">
+                        <a href="/" class="hover:text-white">Início</a>
+                        <span>/</span>
+                        <span class="text-hv-orange">Catálogo de Soluções & Produtos</span>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+                        <div class="lg:col-span-8">
+                            <h1 class="font-display font-extrabold text-3xl sm:text-5xl tracking-editorial leading-tight">
+                                Coberturas, condições e produtos homologados.
+                            </h1>
+                        </div>
+                        <div class="lg:col-span-4 text-sm text-white/75">
+                            Explore em detalhes as coberturas, carências, redes credenciadas, formas de contratação e documentos necessários para cada produto.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Navegador de Abas Técnicas das 4 Verticais -->
+            <section class="py-14 lg:py-20 bg-alabaster">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    
+                    <!-- Botões de Filtro de Modalidade -->
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-10" id="solutionFilterTabs">
+                        <button onclick="switchCatalogDetail('saude')" data-sol="saude" class="sol-tab-btn p-4 rounded-xl border-2 border-hv-navy bg-hv-navy text-white text-left transition-all">
+                            <span class="text-[10px] font-mono uppercase tracking-wider text-hv-orange block">Produto 01</span>
+                            <span class="font-display font-bold text-sm sm:text-base">Planos de Saúde</span>
+                        </button>
+                        <button onclick="switchCatalogDetail('protecao')" data-sol="protecao" class="sol-tab-btn p-4 rounded-xl border border-hv-border bg-white text-hv-navy hover:border-hv-navy/40 text-left transition-all">
+                            <span class="text-[10px] font-mono uppercase tracking-wider text-hv-slate block">Produto 02</span>
+                            <span class="font-display font-bold text-sm sm:text-base">Proteção Veicular</span>
+                        </button>
+                        <button onclick="switchCatalogDetail('auto')" data-sol="auto" class="sol-tab-btn p-4 rounded-xl border border-hv-border bg-white text-hv-navy hover:border-hv-navy/40 text-left transition-all">
+                            <span class="text-[10px] font-mono uppercase tracking-wider text-hv-slate block">Produto 03</span>
+                            <span class="font-display font-bold text-sm sm:text-base">Seguro de Carro</span>
+                        </button>
+                        <button onclick="switchCatalogDetail('consorcio')" data-sol="consorcio" class="sol-tab-btn p-4 rounded-xl border border-hv-border bg-white text-hv-navy hover:border-hv-navy/40 text-left transition-all">
+                            <span class="text-[10px] font-mono uppercase tracking-wider text-hv-slate block">Produto 04</span>
+                            <span class="font-display font-bold text-sm sm:text-base">Consórcio & Financiamento</span>
+                        </button>
+                    </div>
+
+                    <!-- Painel Dinâmico de Especificação Técnica -->
+                    <div id="catalogDetailContainer" class="bg-white rounded-2xl border border-hv-border shadow-sm overflow-hidden">
+                        <!-- Preenchido via JS ou Estado Padrão Saúde -->
+                        <div class="p-8 sm:p-12 grid grid-cols-1 lg:grid-cols-12 gap-10">
+                            <div class="lg:col-span-7 space-y-6">
+                                <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-orange-50 text-hv-orange font-mono text-xs font-semibold">
+                                    <span id="solDetailCode">FICHA TÉCNICA #01 • SAÚDE SUPLEMENTAR</span>
+                                </div>
+                                <h2 id="solDetailTitle" class="font-display font-bold text-3xl sm:text-4xl text-hv-navy tracking-tight">
+                                    Planos de Saúde Individuais, Familiares e PME
+                                </h2>
+                                <p id="solDetailDesc" class="text-hv-slate text-base leading-relaxed">
+                                    Mensalidade fixa a partir de R$ 45, com reembolso de medicamentos e exames. Nossa mesa analisa seu perfil e indica a melhor opção para você, sua família ou sua empresa.
+                                </p>
+
+                                <!-- Sub-modalidades atendidas -->
+                                <div class="pt-4 border-t border-hv-border">
+                                    <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-hv-slate mb-4">Públicos e Formatos Atendidos:</h3>
+                                    <div id="solDetailBullets" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm font-medium text-hv-navy">
+                                        <div class="flex items-center gap-2.5 bg-alabaster p-3 rounded-lg border border-hv-border">
+                                            <i class="fa-solid fa-check text-hv-orange"></i>
+                                            <span>Mensalidade fixa, sem surpresas</span>
+                                        </div>
+                                        <div class="flex items-center gap-2.5 bg-alabaster p-3 rounded-lg border border-hv-border">
+                                            <i class="fa-solid fa-check text-hv-orange"></i>
+                                            <span>Reembolso de medicamentos e exames</span>
+                                        </div>
+                                        <div class="flex items-center gap-2.5 bg-alabaster p-3 rounded-lg border border-hv-border">
+                                            <i class="fa-solid fa-check text-hv-orange"></i>
+                                            <span>Opções individuais e familiares</span>
+                                        </div>
+                                        <div class="flex items-center gap-2.5 bg-alabaster p-3 rounded-lg border border-hv-border">
+                                            <i class="fa-solid fa-check text-hv-orange"></i>
+                                            <span>Atendimento para empresas (PME)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Quadro Lateral de Parâmetros Bancários -->
+                            <div class="lg:col-span-5 bg-alabaster p-6 sm:p-8 rounded-xl border border-hv-border flex flex-col justify-between space-y-6">
+                                <div class="space-y-4">
+                                    <h3 class="font-display font-bold text-lg text-hv-navy border-b border-hv-border pb-3">
+                                        Parâmetros Operacionais do Produto
+                                    </h3>
+                                    <div class="space-y-3 text-xs sm:text-sm">
+                                        <div class="flex justify-between py-2 border-b border-hv-border/70">
+                                            <span class="text-hv-slate">Investimento Referencial:</span>
+                                            <span id="solSpecRate" class="font-mono font-bold text-hv-navy">A partir de R$ 45,00</span>
+                                        </div>
+                                        <div class="flex justify-between py-2 border-b border-hv-border/70">
+                                            <span class="text-hv-slate">Abrangência / Vigência:</span>
+                                            <span id="solSpecTerm" class="font-mono font-bold text-hv-navy">Regional ou nacional (ANS)</span>
+                                        </div>
+                                        <div class="flex justify-between py-2 border-b border-hv-border/70">
+                                            <span class="text-hv-slate">Condições Principais:</span>
+                                            <span id="solSpecMargin" class="font-mono font-bold text-hv-navy">Reembolso de medicamentos e exames</span>
+                                        </div>
+                                        <div class="flex justify-between py-2 border-b border-hv-border/70">
+                                            <span class="text-hv-slate">Análise Cadastral:</span>
+                                            <span id="solSpecCredit" class="font-mono font-bold text-hv-emerald">Sem análise de score</span>
+                                        </div>
+                                        <div class="flex justify-between py-2">
+                                            <span class="text-hv-slate">Documentação Básica:</span>
+                                            <span id="solSpecDocs" class="font-mono font-bold text-hv-navy text-right">RG/CPF + Comprovante de Residência</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="space-y-3 pt-4">
+                                    <a href="/atendimento" class="btn-primary w-full bg-hv-orange hover:bg-hv-orangeHover text-white font-display font-bold text-sm py-4 px-6 rounded-xl transition-colors flex items-center justify-center gap-2 shadow-sm">
+                                        <i class="fa-solid fa-headset text-white"></i>
+                                        <span>Falar com especialista</span>
+                                    </a>
+                                    <a href="https://wa.me/5500000000000?text=Ol%C3%A1%21%20Estou%20no%20cat%C3%A1logo%20da%20Home%20Vantagens%20e%20quero%20uma%20cota%C3%A7%C3%A3o%20de%20plano%20de%20sa%C3%BAde." target="_blank" rel="noopener" class="btn-secondary w-full bg-white hover:bg-paper text-hv-navy border border-hv-border font-display font-semibold text-sm py-3.5 px-6 rounded-xl transition-colors flex items-center justify-center gap-2">
+                                        <i class="fa-brands fa-whatsapp text-hv-orange text-base"></i>
+                                        <span>Falar com Especialista no WhatsApp</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Matriz Comparativa Geral de Todas as Soluções -->
+                    <div class="mt-16">
+                        <h3 class="font-display font-bold text-2xl text-hv-navy mb-6">
+                            Matriz Comparativa de Produtos Homologados
+                        </h3>
+                        <div class="bg-white rounded-2xl border border-hv-border overflow-x-auto">
+                            <table class="w-full text-left border-collapse min-w-[720px]">
+                                <thead>
+                                    <tr class="bg-hv-navy text-white text-[11px] font-mono uppercase tracking-wider">
+                                        <th class="py-4 px-6">Produto</th>
+                                        <th class="py-4 px-6">Público-Alvo</th>
+                                        <th class="py-4 px-6">Referência de Preço</th>
+                                        <th class="py-4 px-6">Forma de Contratação</th>
+                                        <th class="py-4 px-6">Prazo de Ativação</th>
+                                        <th class="py-4 px-6 text-right">Ação</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-hv-border text-xs sm:text-sm">
+                                    <tr class="hover:bg-alabaster/60">
+                                        <td class="py-4 px-6 font-display font-bold text-hv-navy">Plano de Saúde</td>
+                                        <td class="py-4 px-6 text-hv-slate">Individuais, famílias e PME</td>
+                                        <td class="py-4 px-6 font-mono font-semibold text-hv-navy">A partir de R$ 45/mês</td>
+                                        <td class="py-4 px-6 text-hv-slate">Contrato direto com a operadora</td>
+                                        <td class="py-4 px-6 font-mono text-hv-navy">24h a 7 dias</td>
+                                        <td class="py-4 px-6 text-right">
+                                            <a href="/atendimento" class="text-hv-orange font-bold hover:underline">Falar com especialista →</a>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-alabaster/60">
+                                        <td class="py-4 px-6 font-display font-bold text-hv-navy">Proteção Veicular</td>
+                                        <td class="py-4 px-6 text-hv-slate">Carros, motos e utilitários</td>
+                                        <td class="py-4 px-6 font-mono font-semibold text-hv-navy">A partir de R$ 79/mês</td>
+                                        <td class="py-4 px-6 text-hv-slate">Adesão a associação credenciada</td>
+                                        <td class="py-4 px-6 font-mono text-hv-orange font-bold">48h após vistoria</td>
+                                        <td class="py-4 px-6 text-right">
+                                            <a href="/atendimento" class="text-hv-orange font-bold hover:underline">Falar com especialista →</a>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-alabaster/60">
+                                        <td class="py-4 px-6 font-display font-bold text-hv-navy">Seguro de Carro</td>
+                                        <td class="py-4 px-6 text-hv-slate">Condutores e pequenas frotas</td>
+                                        <td class="py-4 px-6 font-mono font-semibold text-hv-navy">A partir de R$ 120/mês</td>
+                                        <td class="py-4 px-6 text-hv-slate">Apólice com seguradora parceira</td>
+                                        <td class="py-4 px-6 font-mono text-hv-navy">24h a 5 dias</td>
+                                        <td class="py-4 px-6 text-right">
+                                            <a href="/atendimento" class="text-hv-orange font-bold hover:underline">Falar com especialista →</a>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-alabaster/60">
+                                        <td class="py-4 px-6 font-display font-bold text-hv-navy">Consórcio & Financiamento</td>
+                                        <td class="py-4 px-6 text-hv-slate">Imóvel, auto e projetos</td>
+                                        <td class="py-4 px-6 font-mono font-semibold text-hv-navy">Parcelas a partir de R$ 499</td>
+                                        <td class="py-4 px-6 text-hv-slate">Grupo de consórcio ou banco parceiro</td>
+                                        <td class="py-4 px-6 font-mono text-hv-navy">7 a 30 dias</td>
+                                        <td class="py-4 px-6 text-right">
+                                            <a href="/atendimento" class="text-hv-orange font-bold hover:underline">Falar com especialista →</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+</BaseLayout>
+
+<script>
+        // -------------------------------------------------------------------
+        // 2. FICHAS TÉCNICAS DA PÁGINA "SOLUÇÕES & PRODUTOS"
+        // -------------------------------------------------------------------
+        const catalogDetails = {
+            saude: {
+                code: 'FICHA TÉCNICA #01 • SAÚDE SUPLEMENTAR',
+                title: 'Planos de Saúde Individuais, Familiares e PME',
+                desc: 'Mensalidade fixa a partir de R$ 45, com reembolso de medicamentos e exames. Nossa mesa analisa seu perfil e indica a melhor opção para você, sua família ou sua empresa.',
+                bullets: [
+                    'Mensalidade fixa, sem surpresas',
+                    'Reembolso de medicamentos e exames',
+                    'Opções individuais e familiares',
+                    'Atendimento para empresas (PME)'
+                ],
+                rate: 'A partir de R$ 45,00/mês',
+                term: 'Regional ou nacional (ANS)',
+                margin: 'Reembolso de medicamentos e exames',
+                credit: 'Sem análise de score',
+                docs: 'RG/CPF + Comprovante de Residência'
+            },
+            protecao: {
+                code: 'FICHA TÉCNICA #02 • PROTEÇÃO PATRIMONIAL',
+                title: 'Proteção Veicular com Assistência 24h',
+                desc: 'Uma alternativa econômica ao seguro tradicional, com cobertura para roubo, furto, colisão e incêndio, além de assistência 24h e guincho em todo o território nacional. Indicada para veículos de uso particular e também para motoristas de aplicativo.',
+                bullets: [
+                    'Roubo, furto, colisão e incêndio',
+                    'Assistência 24h com guincho nacional',
+                    'Cobertura para uso particular e aplicativo',
+                    'Vistoria digital e adesão sem burocracia'
+                ],
+                rate: 'A partir de R$ 79,00/mês',
+                term: 'Nacional, conforme plano',
+                margin: 'Carência de 30 a 90 dias',
+                credit: 'Sem análise de score',
+                docs: 'RG/CPF + Documento do veículo'
+            },
+            auto: {
+                code: 'FICHA TÉCNICA #03 • SEGURO AUTO',
+                title: 'Seguro de Carro com Cobertura sob Medida',
+                desc: 'Cotamos seu perfil em seguradoras parceiras para montar uma apólice com a cobertura que você realmente precisa: colisão, roubo, furto, incêndio, carro reserva, assistência 24h e proteção para terceiros, com franquia e preço ajustados ao seu uso.',
+                bullets: [
+                    'Colisão, roubo, furto e incêndio',
+                    'Carro reserva e assistência 24h',
+                    'Proteção para terceiros e passageiros',
+                    'Franquia reduzida e desconto por perfil'
+                ],
+                rate: 'A partir de R$ 120,00/mês',
+                term: 'Vigência anual renovável',
+                margin: 'Cobertura nacional',
+                credit: 'Análise de perfil e veículo',
+                docs: 'RG/CPF + CNH + Documento do veículo'
+            },
+            consorcio: {
+                code: 'FICHA TÉCNICA #04 • PATRIMÔNIO PLANEJADO',
+                title: 'Consórcio e Financiamento para Imóvel, Auto e Projetos',
+                desc: 'Planeje a compra do seu imóvel, carro ou projeto sem os juros de um financiamento tradicional. No consórcio você paga apenas taxa de administração e fundo de reserva, com contemplação por sorteio ou lance; se precisar do bem agora, comparamos também as linhas de financiamento dos bancos parceiros.',
+                bullets: [
+                    'Consórcio sem juros com taxa de administração',
+                    'Financiamento com parcela imediata',
+                    'Prazos de 12 a 240 meses',
+                    'Simulação e assembleias acompanhadas'
+                ],
+                rate: 'Parcelas a partir de R$ 499,00',
+                term: '12 a 240 meses',
+                margin: 'Taxa de administração estimada de 18%',
+                credit: 'Análise conforme instituição',
+                docs: 'RG/CPF + Comprovante de Renda'
+            }
+        };
+
+        window.switchCatalogDetail = function(solKey) {
+            const d = catalogDetails[solKey];
+            if (!d) return;
+            window.currentSol = solKey;
+
+            document.querySelectorAll('.sol-tab-btn').forEach(btn => {
+                if (btn.dataset.sol === solKey) {
+                    btn.className = 'sol-tab-btn p-4 rounded-xl border-2 border-hv-navy bg-hv-navy text-white text-left transition-all';
+                    btn.querySelector('span:first-child').className = 'text-[10px] font-mono uppercase tracking-wider text-hv-orange block';
+                } else {
+                    btn.className = 'sol-tab-btn p-4 rounded-xl border border-hv-border bg-white text-hv-navy hover:border-hv-navy/40 text-left transition-all';
+                    btn.querySelector('span:first-child').className = 'text-[10px] font-mono uppercase tracking-wider text-hv-slate block';
+                }
+            });
+
+            document.getElementById('solDetailCode').textContent = d.code;
+            document.getElementById('solDetailTitle').textContent = d.title;
+            document.getElementById('solDetailDesc').textContent = d.desc;
+            document.getElementById('solSpecRate').textContent = d.rate;
+            document.getElementById('solSpecTerm').textContent = d.term;
+            document.getElementById('solSpecMargin').textContent = d.margin;
+            document.getElementById('solSpecCredit').textContent = d.credit;
+            document.getElementById('solSpecDocs').textContent = d.docs;
+
+            const bulletsContainer = document.getElementById('solDetailBullets');
+            bulletsContainer.innerHTML = d.bullets.map(b => `
+                <div class="flex items-center gap-2.5 bg-alabaster p-3 rounded-lg border border-hv-border">
+                    <i class="fa-solid fa-check text-hv-orange"></i>
+                    <span>${b}</span>
+                </div>
+            `).join('');
+        };
+// Inicialização: abre a ficha indicada na URL (#saude, #protecao, #auto, #consorcio)
+document.addEventListener('DOMContentLoaded', () => {
+    const h = window.location.hash.replace('#', '');
+    if (catalogDetails[h]) window.switchCatalogDetail(h);
+});
+
+</script>
